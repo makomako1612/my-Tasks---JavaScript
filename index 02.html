@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<!-- დავალება 2 -->
+
+<head>
+    <title>Background Color Changer</title>
+</head>
+
+<body>
+
+<input type="text" id="colorInput" placeholder="ჩაწერე ფერი (red, blue, green, black, white)">
+<button onclick="changeBackgroundColor()">ცვალე ფერი</button>
+
+
+
+    <script>
+        function changeBackgroundColor() {
+            const color = document.getElementById('colorInput').value.toLowerCase(); 
+            // იღებს input-ის value-ს და გარდაქმნის პატარა ასოებად
+            const validColors = ['red', 'blue', 'green', 'black', 'white']; // ლეგიტიმური ფერები
+
+            if (validColors.includes(color)) {
+                document.body.style.backgroundColor = color; // თუ ფერი სწორია, შეცვლის background-ს
+            } else {
+                alert('მხოლოდ ეს ფერები შეგიძლიათ ჩაწეროთ: red, blue, green, black, white'); 
+                // თუ არასწორი ფერია, გამოდის alert
+            }
+        }
+    </script>
+</body>

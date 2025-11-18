@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!-- დავალება 3: -->
+
+<head>
+    <title>Average Calculator</title>
+</head>
+
+<body>
+
+    <h2>შეიტანე რიცხვები ":"-ით გამოყოფილი (მაგ: 1:2:3:4:5)</h2>
+    <input type="text" id="numbersInput" placeholder="ჩაწერე რიცხვები">
+    <button onclick="calculateAverage()">average</button>
+    <p id="result"></p>
+
+    <script>
+
+        function calculateAverage() {
+            const input = document.getElementById('numbersInput').value; // იღებს input-ის value-ს
+            const numbers = input.split(':').map(Number); // იყოფა ":"-ის მიხედვით და კონვერტირდება რიცხვებად
+
+            // შემოწმება, თუ ყველა ელემენტი არის რიცხვი
+            const isValid = numbers.every(num => !isNaN(num));
+
+            if (isValid && numbers.length > 0) {
+                const sum = numbers.reduce((acc, num) => acc + num, 0); // ჯამი
+                const average = sum / numbers.length; // საშუალო
+                document.getElementById('result').textContent = `საშუალო: ${average}`; // აჩვენებს შედეგს
+            } else {
+                document.getElementById('result').textContent = 'გთხოვთ ჩაწეროთ მხოლოდ რიცხვები, გამოყოფილი ":"-ით'; 
+                // თუ არასწორია
+            }
+        }
+ 
+
+    </script>
+</body>

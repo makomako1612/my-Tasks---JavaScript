@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<!-- დავალება 1 -->
+
+<head>
+    <style>
+    /* ღილაკი */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Overlay (შავი გამჭვირვალე ფონი) */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 10;
+}
+/* მოდალი */
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    display: none;
+    z-index: 20;
+}
+
+.modal-content {
+    position: relative;
+}
+
+/* დახურვის ღილაკი */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<button id="openModalBtn">Open Modal</button>
+
+<div id="overlay"></div>
+
+<div id="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close-btn">&times;</span>
+        <h2>Modal Window</h2>
+        <p>ეს არის მოდალის შიგთავსი.</p>
+    </div>
+</div>
+
+
+<script>
+
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("overlay");
+const openBtn = document.getElementById("openModalBtn");
+const closeBtn = document.getElementById("closeModal");
+
+openBtn.onclick = () => {
+    modal.style.display = "block";
+    overlay.style.display = "block";
+};
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+};
+
+overlay.onclick = () => {  // overlay-ზე დაჭერით დახურვა
+    modal.style.display = "none";
+    overlay.style.display = "none";
+};
+
+    </script>
+</body>
